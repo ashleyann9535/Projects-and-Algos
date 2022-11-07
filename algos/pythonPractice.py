@@ -14,6 +14,45 @@ def threesFives(num):
 
 # print(threesFives(10))
 
+#Whoa. That Sucker's Huge(Optional) - Add odd integers from 0 to 500,000, and print the final sum.
+
+def sum(num):
+    rangeSum = 0
+    for x in range(num):
+        rangeSum += x
+    return rangeSum
+
+# print(sum(500000))
+
+# Flexible Counter (Optional) - Set three variables: lowNum, highNum, mult. 
+# Starting at lowNum and going through highNum, print only the integers that are a multiple of mult. 
+# For example, if lowNum=2, highNum=9, and mult=3, the loop should print 3, 6, 9 (on successive lines)
+
+def flexCounter(low, high, mult):
+    for x in range(low, high+1):
+        if x%mult == 0:
+            print(x)
+    return 'Done'
+
+# print(flexCounter(2,9,3))
+
+def whileCounter(low, high, mult):
+    count = low
+    while count <= high:
+        if count%mult == 0:
+            print(count)
+        count+=1
+    return 'Done'
+
+print(whileCounter(2,9,3))
+
+
+
+
+
+
+
+# ***Still need to fix**
 # Create a function to generate Fibonacci numbers. In this famous mathematical sequence, 
 # each number is the sum of the previous two, starting with values 0 and 1. 
 # Your function should accept one argument, an index into the sequence 
