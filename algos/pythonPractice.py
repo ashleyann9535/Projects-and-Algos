@@ -44,15 +44,10 @@ def whileCounter(low, high, mult):
         count+=1
     return 'Done'
 
-print(whileCounter(2,9,3))
+# print(whileCounter(2,9,3))
 
 
 
-
-
-
-
-# ***Still need to fix**
 # Create a function to generate Fibonacci numbers. In this famous mathematical sequence, 
 # each number is the sum of the previous two, starting with values 0 and 1. 
 # Your function should accept one argument, an index into the sequence 
