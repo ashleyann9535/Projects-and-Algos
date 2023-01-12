@@ -93,4 +93,43 @@ def multiToOne(num):
         sum = 0
     return num
 
-print(multiToOne(928))
+# print(multiToOne(928))
+
+# Create clockHandAngles(seconds) that, given a number of seconds since 12:00:00, 
+# returns angles (in degrees) of the hour, minute and second hands. 
+# As review, 360 degrees form a full rotation. 
+# Have the degree round up as a whole number (e.g. 38 instead of 37.632...)
+
+# For input of 3600 secs (equivalent to 1:00:00), 
+# have it return "[30, 0, 0]" meaning the hour is 30 degrees, 
+# the minute and the second is 0 degree from noon.
+
+# clockHandAngles(10800) should return [90, 0, 0] as 10,800 seconds is equivalent to 3:00:00.
+
+def clockHandAngles(num):
+    angles = []
+
+    hour = round(num / 3600)
+
+    seconds = num % 3600
+
+    angles.append(round(360/12 * hour))
+    if seconds >= 60:
+        minutes = round(seconds/60)
+        seconds = seconds%60
+        angles.append(round(360/60 * minutes))
+        angles.append(round(360/60 * seconds))
+    else:
+        angles.append(round(360/60 * seconds))
+
+    if len(angles) < 3:
+        angles.append(0)
+
+    return angles
+
+
+print(clockHandAngles(10800)) # 90, 0 ,0 
+
+#Working on
+print(clockHandAngles(5000)) # 42, 140, 120
+
