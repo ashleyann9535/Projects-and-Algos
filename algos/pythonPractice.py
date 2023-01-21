@@ -106,21 +106,23 @@ def multiToOne(num):
 
 # clockHandAngles(10800) should return [90, 0, 0] as 10,800 seconds is equivalent to 3:00:00.
 
-def clockHandAngles(num):
+def clockHandAngles(seconds):
     angles = []
 
-    hour = round(num / 3600)
+    hour = round(seconds / 3600)
 
-    seconds = num % 3600
+    seconds_left = seconds % 3600
 
     angles.append(round(360/12 * hour))
-    if seconds >= 60:
-        minutes = round(seconds/60)
-        seconds = seconds%60
+    if seconds_left >= 60:
+        minutes = round(seconds_left/60)
+        seconds_left = seconds_left%60
+        print('**minutes =', minutes)
+        print('--seconds =', seconds_left)
         angles.append(round(360/60 * minutes))
-        angles.append(round(360/60 * seconds))
+        angles.append(round(360/60 * seconds_left))
     else:
-        angles.append(round(360/60 * seconds))
+        angles.append(round(360/60 * seconds_left))
 
     if len(angles) < 3:
         angles.append(0)
@@ -128,8 +130,9 @@ def clockHandAngles(num):
     return angles
 
 
-print(clockHandAngles(10800)) # 90, 0 ,0 
+# print(clockHandAngles(10800)) # 90, 0 ,0 
 
 #Working on
-print(clockHandAngles(5000)) # 42, 140, 120
-
+# print(clockHandAngles(5000)) # 42, 140, 120
+# print(clockHandAngles(8000)) # 67, 80, 120
+print(clockHandAngles(4500))
