@@ -113,26 +113,26 @@ def clockHandAngles(seconds):
 
     seconds_left = seconds % 3600
 
-    angles.append(round(360/12 * hour))
-    if seconds_left >= 60:
-        minutes = round(seconds_left/60)
-        seconds_left = seconds_left%60
-        print('**minutes =', minutes)
-        print('--seconds =', seconds_left)
-        angles.append(round(360/60 * minutes))
-        angles.append(round(360/60 * seconds_left))
-    else:
-        angles.append(round(360/60 * seconds_left))
+    minutes = (seconds_left/60)
+    seconds_left = seconds_left%60
+    print('//hours =', hour)
+    # print('**minutes =', minutes)
+    # print('--seconds =', seconds_left)
+    
+    hourAngle = (hour * 30) + (minutes * 0.5)
+    minuteAngle = minutes * 6
+    secondAngle = seconds_left * 6
 
-    if len(angles) < 3:
-        angles.append(0)
+    angles.append(round(hourAngle))
+    angles.append(round(minuteAngle))
+    angles.append(secondAngle)
 
     return angles
 
-
+#Works
 # print(clockHandAngles(10800)) # 90, 0 ,0 
-
-#Working on
 # print(clockHandAngles(5000)) # 42, 140, 120
 # print(clockHandAngles(8000)) # 67, 80, 120
-print(clockHandAngles(4500))
+
+#Still testing
+print(clockHandAngles(50000)) #[57, 320, 120]
