@@ -118,8 +118,11 @@ def clockHandAngles(seconds):
     print('//hours =', hour)
     # print('**minutes =', minutes)
     # print('--seconds =', seconds_left)
-    
-    hourAngle = (hour * 30) + (minutes * 0.5)
+    if hour > 12:
+        hour = hour - 12
+        hourAngle = (hour * 30) + (minutes * 0.5) - 30
+    else:
+        hourAngle = (hour * 30) + (minutes * 0.5)
     minuteAngle = minutes * 6
     secondAngle = seconds_left * 6
 
